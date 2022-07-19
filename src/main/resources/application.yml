@@ -1,0 +1,39 @@
+# refactor, rename, .yml 
+# 객체의 멤버변수값 변경 (세터 메서드)
+
+
+# h2
+spring:  
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/my-db-test
+    username: sa
+    password:
+
+      
+# JPA
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect    
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+      use-new-id-generator-mappings: false
+    properties[hibernate.format_sql]: true
+    
+    
+# JPA 도 spring: 밑에 설정 (띄어쓰기 두칸)
+
+# Dialect : h2 디비에 최적화된 SQL 생성   
+
+# how-sql : true = 생성한 SQL 콘솔에 출력 
+
+# physical-strategy : 컬럼이름과 엔티티 클래스의 변수이름을 똑같이 매핑하는 설정
+
+# ddl-auto : update = 테이블 있으면 생성 안함, 변수 추가하면 컬럼 자동 추가 / create = 애플리케이션 실행마다 테이블 있어도 drop하고 새로생성, alter (entity 클래스)
+
+# use-new-id-generator-mapping : 새로운 primary key 생성하는 알고리즘 적용 안되도록  
+
+# format_sql : true = 생성되는 SQL이 한줄 아닌 포맷 유지하여 출력되도록함
+
